@@ -1,0 +1,72 @@
+<% if @user.image.attached? %>
+  <div><%= image_tag @user.image %></div>
+<% else %>
+  <% if @user.sex == '男' %>
+    <div><%= image_tag 'job_barista_man.png' %></div>
+  <% else %>
+    <div><%= image_tag 'job_barista_woman.png' %></div>
+  <% end %>
+<% end %>
+
+<p>基本情報</p>
+<div>
+  <%= @user.name %>
+  <%= @user.sex %>
+  <%= @user.birthday %>
+</div>
+
+<p>紹介文</p>
+<% if @user.about.present? %>
+  <div><%= @user.about %></div>
+<% else %>
+  <div>紹介文はまだありません。</div>
+<% end %>
+
+<p>やってみたいこと</p>
+<% if @user.want.present?  %>
+  <div><%= @user.want %></div>
+<% else %>
+  <div>やってみたいことはまだありません。</div>
+<% end %>
+
+<p>職歴</p>
+<% if @user.history.present?  %>
+  <div><%= @user.history %></div>
+<% else %>
+  <div>職歴はまだありません。</div>
+<% end %>
+
+<p>スキル</p>
+<% if @user.skills.present?  %>
+  <div><%= @user.skills %></div>
+<% else %>
+  <div>スキルはまだありません。</div>
+<% end %>
+
+<p>学歴</p>
+<% if @user.education.present?  %>
+  <div><%= @user.education %></div>
+<% else %>
+  <div>学歴はまだありません。</div>
+<% end %>
+
+<p>言語</p>
+<% if @user.language.present?  %>
+  <div><%= @user.language %></div>
+<% else %>
+  <div>言語はまだありません。</div>
+<% end %>
+
+<p>資格</p>
+<% if @user.qualification.present? %>
+  <div><%= @user.qualification %></div>
+<% else %>
+  <div>資格はまだありません。</div>
+<% end %>
+
+<p>受賞歴</p>
+<% if @user.aword.present?  %>
+  <div><%= @user.aword %></div>
+<% else %>
+  <div>受賞歴はまだありません。</div>
+<% end %>
