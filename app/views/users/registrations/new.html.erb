@@ -23,7 +23,7 @@
   </div>
   <div>
     <%= f.label :birthday, '生年月日' %>
-    <%= f.date_field :birthday %>
+    <%= f.date_select :birthday, use_month_numbers: true, prompt: "--", start_year: 2005, end_year:1980 %>
   </div>
   <div>
     <%= f.label :email, 'メールアドレス' %>
