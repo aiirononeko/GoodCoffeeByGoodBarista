@@ -1,0 +1,17 @@
+<% @users.each do |user| %>
+  <div>
+    <% if user.image.attached? %>
+      <div><%= image_tag user.image %></div>
+    <% else %>
+      <% if user.sex == '男' %>
+        <div><%= image_tag 'job_barista_man.png' %></div>
+      <% else %>
+        <div><%= image_tag 'job_barista_woman.png' %></div>
+      <% end %>
+    <% end %>
+    <%= user.name %>
+    <%= user.sex %>
+    <%= user.birthday %>
+    <%= link_to "#{user.name}さんの詳細をみる", user_path(user) %>
+  </div>
+<% end %>

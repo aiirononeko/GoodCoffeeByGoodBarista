@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+        <li><%= link_to 'GoodCoffeeByGoodBarista' %></li>
+        <% if current_user.present? %>
+          <li><%= link_to '募集をみる' %></li>
+          <li><%= link_to 'バリスタを探す', users_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'プロフィール', edit_user_registration_path(current_user) %></li>
+          <li><%= current_user.name %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <li><%= link_to '新規登録', new_user_registration_path %></li>
+          <li><%= link_to '採用担当者の方' %></li>
+        <% end %>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>

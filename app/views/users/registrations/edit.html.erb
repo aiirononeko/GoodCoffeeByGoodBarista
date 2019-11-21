@@ -1,0 +1,67 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= link_to 'プロフィールを確認', user_path(current_user) %>
+
+  <div><%= current_user.name %></div>
+
+  <p>基本情報</p>
+  <div>
+    <p><%= current_user.sex %></p>
+    <p><%= current_user.birthday %></p>
+  </div>
+
+  <% if resource.errors.any? %>
+    <div>
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user.image.attached? %>
+    <div><%= image_tag current_user.image %></div>
+  <% else %>
+    <% if current_user.sex == '男' %>
+      <div><%= image_tag 'job_barista_man.png' %></div>
+    <% else %>
+      <div><%= image_tag 'job_barista_woman.png' %></div>
+    <% end %>
+  <% end %>
+  <%= f.label :image, 'プロフィール画像' %>
+  <div><%= f.file_field :image %></div>
+
+  <div>
+    <%= f.label :about, '紹介文' %>
+    <%= f.text_area :about, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :want, 'やってみたいこと' %>
+    <%= f.text_area :want, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :history, '職歴' %>
+    <%= f.text_area :history, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :skills, 'スキル' %>
+    <%= f.text_area :skills, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :education, '学歴' %>
+    <%= f.text_area :education, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :language, '言語' %>
+    <%= f.text_field :language %>
+  </div>
+  <div>
+    <%= f.label :qualification, '資格' %>
+    <%= f.text_field :qualification %>
+  </div>
+  <div>
+    <%= f.label :aword, '受賞歴' %>
+    <%= f.text_field :aword %>
+  </div>
+  <%= f.submit 'プロフィールを更新' %>
+<% end %>
