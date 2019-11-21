@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'tops#barista'
+  get 'tops/owner', to: 'tops#owner'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
