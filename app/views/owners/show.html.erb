@@ -1,0 +1,36 @@
+<h2><%= @owner.company %></h2>
+
+<% if @owner.image.attached? %>
+  <div><%= image_tag @owner.image %></div>
+<% else %>
+  <div><%= image_tag 'cafe.jpeg' %></div>
+<% end %>
+
+<% if @owner.title %>
+  <p><%= @owner.title %></p>
+<% else %>
+  <p>タイトルはまだありません</p>
+<% end %>
+
+<% if @owner.about %>
+  <p><%= @owner.about %></p>
+<% else %>
+  <p>こんなことやっていますはまだありません</p>
+<% end %>
+
+<% if @owner.introduce %>
+  <p><%= @owner.introduce %></p>
+<% else %>
+  <p>店舗紹介はまだありません</p>
+<% end %>
+
+<% if @owner.wanted %>
+  <p><%= @owner.wanted %></p>
+<% else %>
+  <p>こんな人探していますはまだありません</p>
+<% end %>
+
+<%= link_to '話を聞きたい' %>
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>

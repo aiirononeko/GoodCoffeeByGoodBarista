@@ -1,0 +1,14 @@
+<% @owners.each do |owner| %>
+  <div>
+    <% if owner.image.attached? %>
+      <div><%= image_tag owner.image %></div>
+    <% else %>
+      <div><%= image_tag 'cafe.jpeg' %></div>
+    <% end %>
+    <%= owner.company %>
+    <%= owner.title %>
+    <%= link_to "#{owner.company}の詳細をみる", owner_path(owner) %>
+  </div>
+<% end %>
+
+<%= link_to 'New Owner', new_owner_path %>
