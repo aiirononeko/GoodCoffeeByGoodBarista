@@ -12,20 +12,31 @@
   <body>
     <header>
       <ul>
-        <li><%= link_to 'GoodCoffeeByGoodBarista' %></li>
+        <li><%= link_to 'GoodCoffeeByGoodBarista', root_path %></li>
         <% if current_user.present? %>
-          <li><%= link_to '募集をみる' %></li>
-          <li><%= link_to 'バリスタを探す', users_path %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to '募集をみる', owners_path %></li>
           <li><%= link_to 'プロフィール', edit_user_registration_path(current_user) %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <li><%= current_user.name %></li>
+        <% elsif current_owner.present? %>
+          <li><%= link_to 'バリスタを探す', users_path %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+          <li><%= link_to 'プロフィール', edit_owner_path(current_owner) %></li>
+          <li><%= current_owner.name %></li>
         <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-          <li><%= link_to '新規登録', new_user_registration_path %></li>
-          <li><%= link_to '採用担当者の方' %></li>
+          <li><%= link_to 'ログイン（バリスタ）', new_user_session_path %></li>
+          <li><%= link_to '新規登録（バリスタ）', new_user_registration_path %></li>
+          <li><%= link_to 'ログイン（オーナー）', login_path %></li>
+          <li><%= link_to '新規登録（オーナー）', new_owner_path %></li>
+          <li><%= link_to '採用担当者の方', tops_owner_path %></li>
         <% end %>
       </ul>
     </header>
+
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

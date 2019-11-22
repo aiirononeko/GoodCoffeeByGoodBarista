@@ -15,6 +15,17 @@ ja:
         language: 言語
         qualification: 資格
         aword: 受賞歴
+      owner:
+        company: 店舗名または会社名
+        name: 担当者氏名
+        tel: 担当者電話番号
+        email: 担当者メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        title: 募集タイトル
+        about: こんなことやってます
+        introduce: 店舗紹介
+        wanted: こんな人探してます
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

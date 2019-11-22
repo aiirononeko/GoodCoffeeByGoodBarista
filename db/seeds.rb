@@ -27,3 +27,14 @@ end
   )
   i += 1
 end
+
+n = 1
+10.times do
+  Owner.create!(
+    company: "company#{n}",
+    name: "owner#{n}",
+    tel: '11-1111',
+    email: "owner#{n}@example.com",
+    password: 'password'
+  )
+end

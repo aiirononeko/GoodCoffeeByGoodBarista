@@ -1,0 +1,37 @@
+<%= link_to 'プロフィールを確認' %>
+
+<%= form_with model: @owner, local: true do |f| %>
+  <div>
+    <%= f.label :title, '募集タイトル' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :image, '店舗画像' %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+  <% if @owner.image.attached? %>
+    <div><%= image_tag @owner.image %></div>
+  <% else %>
+    <div><%= image_tag 'cafe.jpeg' %></div>
+  <% end %>
+  </div>
+  <div>
+    <%= f.label :about, 'こんなことやれます' %>
+    <%= f.text_area :about, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :introduce, '店舗紹介' %>
+    <%= f.text_area :introduce, rows: 5 %>
+  </div>
+  <div>
+    <%= f.label :wanted, 'こんな人と働きたいです' %>
+    <%= f.text_area :wanted, rows: 5 %>
+  </div>
+  <%= f.submit 'プロフィールを更新' %>
+<% end %>
+
+<%= link_to '退会する', owner_path(@owner), method: :delete, data: { confirm: '退会しますか？' } %>
+
+<%= link_to 'Show', @owner %> |
+<%= link_to 'Back', owners_path %>
