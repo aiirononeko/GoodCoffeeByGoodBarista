@@ -1,24 +1,28 @@
-# README
+# 概要
+バリスタとカフェオーナー向けの転職マッチングサイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 機能一覧
+・ログイン機能
+<br>
+・バリスタユーザー一覧表示機能
+<br>
+・バリスタユーザー詳細表示機能
+<br>
+・バリスタユーザー登録機能（プロフィール画像アップロード機能）
+<br>
+・オーナーユーザー一覧表示機能
+<br>
+・オーナーユーザー詳細表示機能
+<br>
+・オーナーユーザー登録機能（プロフィール画像アップロード機能）
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 技術一覧
+言語: Ruby:2.5.3
+<br>
+フレームワーク: Ruby on Rails:5.2
+<br>
+データベース: MySQL
+<br>
+仮想環境: Docker
+<br>
+インフラ: AWS
