@@ -28,7 +28,8 @@ class OwnersController < ApplicationController
 
     respond_to do |format|
       if @owner.save
-        format.html { redirect_to @owner, notice: 'Owner was successfully created.' }
+        format.html { redirect_to @owner, notice: "GoodCoffeeByGoodBaristaへようこそ、#{@owner.name}さん！" }
+        session[:owner_id] = @owner.id
         format.json { render :show, status: :created, location: @owner }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class OwnersController < ApplicationController
   def update
     respond_to do |format|
       if @owner.update(owner_params)
-        format.html { redirect_to @owner, notice: 'Owner was successfully updated.' }
+        format.html { redirect_to edit_owner_path(@owner), notice: 'プロフィールを更新しました' }
         format.json { render :show, status: :ok, location: @owner }
       else
         format.html { render :edit }

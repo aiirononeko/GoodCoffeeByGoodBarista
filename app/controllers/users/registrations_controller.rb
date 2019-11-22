@@ -20,9 +20,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    flash[:notice] = 'プロフィールを更新しました'
+  end
 
   # DELETE /resource
   # def destroy
@@ -52,6 +53,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+
+  def after_update_path_for(resource)
+    edit_user_registration_path
   end
 
   # The path used after sign up.
