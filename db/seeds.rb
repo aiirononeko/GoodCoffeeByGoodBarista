@@ -37,4 +37,5 @@ n = 1
     email: "owner#{n}@example.com",
     password: 'password'
   )
+  n += 1
 end
