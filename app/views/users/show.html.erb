@@ -84,3 +84,7 @@
     </tr>
   </tbody>
 </table>
+
+<% if current_owner %>
+  <%= link_to '面談を提案する', "/users/#{@user.id}/contact", data: { confirm: "#{@user.name}さんを面談に誘います。よろしいですか？" }, class: 'btn btn-primary mb-5' %>
+<% end %>

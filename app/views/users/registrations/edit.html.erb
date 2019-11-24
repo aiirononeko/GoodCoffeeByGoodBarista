@@ -63,5 +63,7 @@
     <%= f.label :aword, '受賞歴' %>
     <%= f.text_field :aword, class: 'form-control' %>
   </div>
-  <%= f.submit 'プロフィールを更新', class: 'btn btn-success mt-3 mb-5' %>
+  <%= f.submit 'プロフィールを更新', class: 'btn btn-success mt-3' %>
 <% end %>
+
+<%= link_to '退会する', user_registration_path, method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'float-right mb-5' %>

@@ -25,3 +25,8 @@ services:
     image: selenium/standalone-chrome-debug
     logging:
       driver: none
+  
+  mail:
+    image: yaasita/docker_blackhole_mail_server
+    ports:
+      - "1080:80"
