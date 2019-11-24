@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get 'login', to: 'owner_sessions#new'
   post 'login', to: 'owner_sessions#create'
   delete 'logout', to: 'owner_sessions#destroy'
+
+  get 'users/:id/contact', to: 'users#contact'
+  get 'owners/:id/contact', to: 'owners#contact'
 end

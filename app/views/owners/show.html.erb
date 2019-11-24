@@ -40,4 +40,6 @@
   </tbody>
 </table>
 
-<%= link_to '話を聞きたい' %>
+<% if current_user %>
+  <%= link_to '面談を申し込む', "/owners/#{@owner.id}/contact", data: { confirm: "#{@owner.company}さんに面談を申し込みます。よろしいですか？" }, class: 'btn btn-primary' %>
+<% end %>

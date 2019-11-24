@@ -62,6 +62,12 @@ class OwnersController < ApplicationController
     end
   end
 
+  def contact
+    @owner = Owner.find(params[:id])
+    NotificationMailer.send_confirm_to_owner(@owner).deliver_later
+    redirect_to owner_path(@owner), notice: '面談の提案を送信しました。相手からの返信をお待ちください。'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_owner
