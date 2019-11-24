@@ -1,36 +1,43 @@
-<h2><%= @owner.company %></h2>
-
+<div class='mt-3'></div>
 <% if @owner.image.attached? %>
-  <div><%= image_tag @owner.image %></div>
+  <div><%= image_tag @owner.image, class: 'owner-image-show mt-3' %></div>
 <% else %>
-  <div><%= image_tag 'cafe.jpeg' %></div>
+  <div><%= image_tag 'cafe.jpeg', class: 'owner-image-show mt-3' %></div>
 <% end %>
+<% if @owner.title.present? %>
+  <h3 class='mt-3'><%= @owner.title %></h3>
+<% else %>
+  <h3 class='mt-3'>募集タイトルはまだありません</h3>
+<% end %>
+<h5 class='mt-3'><%= @owner.company %></h5>
 
-<% if @owner.title %>
-  <p><%= @owner.title %></p>
-<% else %>
-  <p>タイトルはまだありません</p>
-<% end %>
-
-<% if @owner.about %>
-  <p><%= @owner.about %></p>
-<% else %>
-  <p>こんなことやっていますはまだありません</p>
-<% end %>
-
-<% if @owner.introduce %>
-  <p><%= @owner.introduce %></p>
-<% else %>
-  <p>店舗紹介はまだありません</p>
-<% end %>
-
-<% if @owner.wanted %>
-  <p><%= @owner.wanted %></p>
-<% else %>
-  <p>こんな人探していますはまだありません</p>
-<% end %>
+<table class="table table-striped mt-5 mb-4">
+  <tbody>
+    <tr>
+      <th scope="row">こんな事やっています</th>
+      <% if @owner.about %>
+        <td><%= @owner.about %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">店舗紹介</th>
+      <% if @owner.introduce %>
+        <td><%= @owner.introduce %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">こんなバリスタ探してます</th>
+      <% if @owner.wanted %>
+        <td><%= @owner.wanted %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to '話を聞きたい' %>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>

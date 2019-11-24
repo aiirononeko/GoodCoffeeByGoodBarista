@@ -9,37 +9,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :company, '店舗名または会社名' %>
-    <%= form.text_field :company %>
+    <%= form.text_field :company, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name, '担当者氏名' %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tel, '担当者電話番号' %>
-    <%= form.text_field :tel %>
+    <%= form.text_field :tel, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email, '担当者メールアドレス' %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password, 'パスワード' %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password_confirmation, 'パスワード（確認）' %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit '登録する' %>
-  </div>
+  <%= form.submit '登録する', class: 'btn btn-primary mt-3 mb-3' %>
 <% end %>

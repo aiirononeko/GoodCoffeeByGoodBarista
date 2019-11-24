@@ -1,17 +1,18 @@
+<div class='d-flex flex-row flex-wrap mt-3'>
 <% @users.each do |user| %>
-  <div>
+  <div class='text-center border barista-index p-2 mb-3'>
     <% if user.image.attached? %>
-      <div><%= image_tag user.image %></div>
+      <div><%= image_tag user.image, class: 'barista-image mt-3 mb-3' %></div>
     <% else %>
       <% if user.sex == '男' %>
-        <div><%= image_tag 'job_barista_man.png' %></div>
+        <div><%= image_tag 'job_barista_man.png', class: 'barista-image mt-3 mb-3' %></div>
       <% else %>
-        <div><%= image_tag 'job_barista_woman.png' %></div>
+        <div><%= image_tag 'job_barista_woman.png', class: 'barista-image mt-3 mb-3' %></div>
       <% end %>
     <% end %>
-    <%= user.name %>
-    <%= user.sex %>
-    <%= user.birthday %>
-    <%= link_to "#{user.name}さんの詳細をみる", user_path(user) %>
+    <p><%= user.name %></p>
+    <p><%= user.sex %></p>
+    <p><%= user.birthday %></p>
+    <p><%= link_to "#{user.name}さんの詳細をみる", user_path(user) %></p>
   </div>
 <% end %>
