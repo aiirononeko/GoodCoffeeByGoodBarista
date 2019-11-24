@@ -1,72 +1,86 @@
-<% if @user.image.attached? %>
-  <div><%= image_tag @user.image %></div>
-<% else %>
-  <% if @user.sex == '男' %>
-    <div><%= image_tag 'job_barista_man.png' %></div>
+<div class='text-center mt-5'>
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image, class: "border border-dark barista-image" %>
   <% else %>
-    <div><%= image_tag 'job_barista_woman.png' %></div>
+    <% if @user.sex == '男' %>
+      <%= image_tag 'job_barista_man.png', class: "border border-dark barista-image" %>
+    <% else %>
+      <%= image_tag 'job_barista_woman.png', class: "border border-dark barista-image" %>
+    <% end %>
   <% end %>
-<% end %>
-
-<p>基本情報</p>
-<div>
-  <%= @user.name %>
-  <%= @user.sex %>
-  <%= @user.birthday %>
 </div>
 
-<p>紹介文</p>
-<% if @user.about.present? %>
-  <div><%= @user.about %></div>
-<% else %>
-  <div>紹介文はまだありません。</div>
-<% end %>
+<h3 class='text-center mt-5 mb-5'><%= @user.name %></h3>
 
-<p>やってみたいこと</p>
-<% if @user.want.present?  %>
-  <div><%= @user.want %></div>
-<% else %>
-  <div>やってみたいことはまだありません。</div>
-<% end %>
-
-<p>職歴</p>
-<% if @user.history.present?  %>
-  <div><%= @user.history %></div>
-<% else %>
-  <div>職歴はまだありません。</div>
-<% end %>
-
-<p>スキル</p>
-<% if @user.skills.present?  %>
-  <div><%= @user.skills %></div>
-<% else %>
-  <div>スキルはまだありません。</div>
-<% end %>
-
-<p>学歴</p>
-<% if @user.education.present?  %>
-  <div><%= @user.education %></div>
-<% else %>
-  <div>学歴はまだありません。</div>
-<% end %>
-
-<p>言語</p>
-<% if @user.language.present?  %>
-  <div><%= @user.language %></div>
-<% else %>
-  <div>言語はまだありません。</div>
-<% end %>
-
-<p>資格</p>
-<% if @user.qualification.present? %>
-  <div><%= @user.qualification %></div>
-<% else %>
-  <div>資格はまだありません。</div>
-<% end %>
-
-<p>受賞歴</p>
-<% if @user.aword.present?  %>
-  <div><%= @user.aword %></div>
-<% else %>
-  <div>受賞歴はまだありません。</div>
-<% end %>
+<table class="table table-striped mb-5">
+  <tbody>
+    <tr>
+      <th scope="row">基本情報</th>
+      <td>性別: <%= @user.sex %> | 生年月日: <%= @user.birthday %></td>
+    </tr>
+    <tr>
+      <th scope="row">紹介文</th>
+      <% if @user.about.present? %>
+        <td><%= @user.about %></td>
+      <% else %>
+        <td>紹介文はまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">やってみたいこと</th>
+      <% if @user.want.present?  %>
+        <td><%= @user.want %></td>
+      <% else %>
+        <td>やってみたいことはまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">職歴</th>
+      <% if @user.history.present?  %>
+        <td><%= @user.history %></td>
+      <% else %>
+        <td>職歴はまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">スキル</th>
+      <% if @user.skills.present?  %>
+        <td><%= @user.skills %></td>
+      <% else %>
+        <td>スキルはまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">学歴</th>
+      <% if @user.education.present?  %>
+        <td><%= @user.education %></td>
+      <% else %>
+        <td>学歴はまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">言語</th>
+      <% if @user.language.present?  %>
+        <td><%= @user.language %></td>
+      <% else %>
+        <td>言語はまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">資格</th>
+      <% if @user.qualification.present? %>
+        <td><%= @user.qualification %></td>
+      <% else %>
+        <td>資格はまだありません。</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope="row">受賞歴</th>
+      <% if @user.aword.present?  %>
+        <td><%= @user.aword %></td>
+      <% else %>
+        <td>受賞歴はまだありません。</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

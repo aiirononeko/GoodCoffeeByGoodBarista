@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_one_attached :image
+
+  def thumbnail
+    return self.image.variant(resize: '300*300')
+  end
 end
