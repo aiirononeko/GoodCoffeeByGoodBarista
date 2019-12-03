@@ -16,3 +16,12 @@ ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 RUN bundle install
 ADD . $APP_ROOT
+RUN mkdir -p tmp/sockets
+
+# Expose volumes to frontend
+VOLUME /GCBGB/public
+VOLUME /GCBGB/tmp
+
+# Start Server
+# TODO: environment
+CMD bundle exec puma
