@@ -1,14 +1,17 @@
-FROM ruby:2.5.3
+FROM ruby:2.5.3-alpine3.8
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential \
-                       libpq-dev \
-                       nodejs \
-                       ssmtp \
-                       vim
+RUN apk update && \
+    apk add --no-cache alpine-sdk \
+    nodejs-current \
+    nodejs-npm \
+    yarn \
+    mysql-client \
+    mysql-dev \
+    python2 \
+    tzdata
 
-RUN mkdir /GCBGB
-ENV APP_ROOT /GCBGB
+RUN mkdir /usr/src/GCBGB
+ENV APP_ROOT /usr/src/GCBGB
 WORKDIR $APP_ROOT
 
 ADD ./Gemfile $APP_ROOT/Gemfile
@@ -18,10 +21,7 @@ RUN bundle install
 ADD . $APP_ROOT
 RUN mkdir -p tmp/sockets
 
-# Expose volumes to frontend
 VOLUME /GCBGB/public
 VOLUME /GCBGB/tmp
 
-# Start Server
-# TODO: environment
 CMD bundle exec puma
