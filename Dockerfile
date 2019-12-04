@@ -8,7 +8,8 @@ RUN apk update && \
     mysql-client \
     mysql-dev \
     python2 \
-    tzdata
+    tzdata \
+    vim
 
 RUN mkdir /usr/src/GCBGB
 ENV APP_ROOT /usr/src/GCBGB
