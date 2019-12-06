@@ -7,13 +7,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
-    flash[:notice] = "GoodCoffeeByGoodBaristaへようこそ、#{@user.name}さん！"
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    flash[:notice] = "GoodCoffeeByGoodBaristaへようこそ、#{@user.name}さん！"
+  end
 
   # GET /resource/edit
   # def edit
@@ -27,9 +27,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    flash[:notice] = '退会しました'
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
