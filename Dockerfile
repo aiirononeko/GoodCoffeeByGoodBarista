@@ -14,8 +14,8 @@ RUN apk update && \
 
 ADD nginx.conf /etc/nginx/sites-available/app.conf
 
-RUN mkdir /usr/src/GCBGB
-ENV APP_ROOT /usr/src/GCBGB
+RUN mkdir /GCBGB
+ENV APP_ROOT /GCBGB
 WORKDIR $APP_ROOT
 
 ADD ./Gemfile $APP_ROOT/Gemfile
