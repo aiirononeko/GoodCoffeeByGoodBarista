@@ -31,3 +31,8 @@
     <p><%= link_to "#{user.name}さんの詳細をみる", user_path(user) %></p>
   </div>
 <% end %>
+</div>
+
+<div class='mb-5'>
+  <%= paginate @users %>
+</div>
