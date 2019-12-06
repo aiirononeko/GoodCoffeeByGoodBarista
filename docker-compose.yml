@@ -18,17 +18,9 @@ services:
     links:
       - db
     environment:
-      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+      RAILS_ENV: 'production'
+      RACK_ENV: 'production'
     tty: true
-
-  nginx:
-    build: containers/nginx
-    ports:
-      - "80:80"
-    volumes_from:
-      - web
-    depends_on:
-      - web
     
   selenium_chrome:
     image: selenium/standalone-chrome-debug
