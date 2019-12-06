@@ -4,7 +4,8 @@ class OwnersController < ApplicationController
   # GET /owners
   # GET /owners.json
   def index
-    @owners = Owner.all
+    @q = Owner.ransack(params[:q])
+    @owners = @q.result(distinct: true)
   end
 
   # GET /owners/1
@@ -77,5 +78,9 @@ class OwnersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_params
       params.require(:owner).permit(:company, :name, :tel, :email, :password, :password_confirmation, :image, :title, :about, :introduce, :wanted)
+    end
+
+    def search_params
+      params.require(:q).permit(:company_cont)
     end
 end

@@ -1,3 +1,13 @@
+<%= search_form_for @q do |f| %>
+  <div>
+    <%= f.label :company_cont, '店舗名' %>
+    <%= f.search_field :company_cont %>
+  </div>
+  <div>
+  <%= f.submit '検索' %>
+  </div>
+<% end %>
+
 <% @owners.each do |owner| %>
   <div class='mt-5 text-center border'>
     <% if owner.image.attached? %>
