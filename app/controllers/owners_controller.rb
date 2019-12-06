@@ -5,7 +5,7 @@ class OwnersController < ApplicationController
   # GET /owners.json
   def index
     @q = Owner.ransack(params[:q])
-    @owners = @q.result(distinct: true)
+    @owners = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /owners/1

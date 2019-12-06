@@ -6,7 +6,7 @@
 <% end %>
 
 <% @owners.each do |owner| %>
-  <div class='mt-5 text-center border'>
+  <div class='mb-5 text-center border'>
     <% if owner.image.attached? %>
       <div><%= image_tag owner.image, class: 'owner-image-index mt-3' %></div>
     <% else %>
@@ -21,3 +21,7 @@
     <p><%= link_to "#{owner.company}の求人をみる", owner_path(owner) %><p>
   </div>
 <% end %>
+
+<div class='mb-5'>
+  <%= paginate @owners %>
+</div>

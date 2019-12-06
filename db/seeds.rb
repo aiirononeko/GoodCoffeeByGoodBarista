@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 i = 1
-5.times do
+15.times do
   User.create!(
     name: "barista#{i}",
     sex: '男',
@@ -17,7 +17,7 @@ i = 1
   i += 1
 end
 
-5.times do
+15.times do
   User.create!(
     name: "barista#{i}",
     sex: '女',
@@ -29,7 +29,7 @@ end
 end
 
 n = 1
-10.times do
+30.times do
   Owner.create!(
     company: "company#{n}",
     name: "owner#{n}",
