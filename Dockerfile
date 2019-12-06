@@ -1,6 +1,9 @@
 FROM ruby:2.5.3-alpine3.8
 
+ENV CHROME_PACKAGES="chromium-chromedriver zlib-dev chromium xvfb wait4ports xorg-server dbus ttf-freefont mesa-dri-swrast udev"
+
 RUN apk update && \
+    apk upgrade && \
     apk add --no-cache alpine-sdk \
     nodejs-current \
     nodejs-npm \
@@ -9,7 +12,8 @@ RUN apk update && \
     mysql-dev \
     python2 \
     tzdata \
-    vim
+    vim \
+    ${CHROME_PACKAGES}
 
 RUN mkdir /GCBGB
 ENV APP_ROOT /GCBGB

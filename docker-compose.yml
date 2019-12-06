@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mysql:5.7 
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
@@ -20,7 +20,7 @@ services:
     # environment:
     #   RAILS_ENV: 'production'
     environment:
-      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+      - RAILS_SYSTEM_TESTING_SCREENSHOT=inline
     tty: true
 
   nginx:
@@ -31,11 +31,6 @@ services:
       - web
     depends_on:
       - web
-    
-  selenium_chrome:
-    image: selenium/standalone-chrome-debug
-    logging:
-      driver: none
   
   mail:
     image: yaasita/docker_blackhole_mail_server
