@@ -9,10 +9,7 @@ RUN apk update && \
     mysql-dev \
     python2 \
     tzdata \
-    nginx \
     vim
-
-ADD nginx.conf /etc/nginx/sites-available/app.conf
 
 RUN mkdir /GCBGB
 ENV APP_ROOT /GCBGB
@@ -23,7 +20,7 @@ ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 RUN bundle install
 ADD . $APP_ROOT
-RUN mkdir tmp/sockets
+RUN mkdir -p tmp/sockets
 
-CMD bundle exec puma -d && \
-    /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+VOLUME $APP_ROOT/public
+VOLUME $APP_ROOT/tmp
