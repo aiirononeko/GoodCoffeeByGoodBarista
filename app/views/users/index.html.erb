@@ -1,3 +1,18 @@
+<%= search_form_for @q do |f| %>
+  <div class='border mt-5 mb-5'>
+    <div class='form-group text-center mt-3'>
+      <%= f.label :sex_eq, '性別', class: 'form-check-label' %>
+      <%= f.radio_button :sex_eq, '', {:checked => true} %>
+      指定なし
+      <%= f.radio_button :sex_eq, '男' %>
+      男
+      <%= f.radio_button :sex_eq, '女' %>
+      女
+      <%= f.submit '検索', class: 'btn btn-info ml-5' %>
+    </div>
+  </div>
+<% end %>
+
 <div class='d-flex flex-row flex-wrap mt-3'>
 <% @users.each do |user| %>
   <div class='text-center border barista-index p-2 mb-3'>

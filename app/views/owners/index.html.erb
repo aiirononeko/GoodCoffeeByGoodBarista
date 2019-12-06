@@ -1,3 +1,10 @@
+<%= search_form_for @q do |f| %>
+    <div class='form-group d-flex mt-5 mb-5'>
+      <%= f.search_field :company_cont, placeholder: '店舗名で検索', class: 'form-control' %>
+      <%= f.submit '検索', class: 'btn btn-info' %>
+    </div>
+<% end %>
+
 <% @owners.each do |owner| %>
   <div class='mt-5 text-center border'>
     <% if owner.image.attached? %>
