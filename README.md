@@ -17,8 +17,20 @@
 <br>
 フレームワーク: Ruby on Rails:5.2
 <br>
-データベース: MySQL
+データベース: MySQL:5.7
 <br>
 仮想環境: Docker
 <br>
-インフラ: AWS(EC2, RDS, S3, Route53)
+インフラ: AWS(EC2, RDS, S3, ALB, Route53)
+
+# テストユーザー
+### バリスタユーザー
+##### メールアドレス
+barista@example.com
+##### パスワード
+password
+### オーナーユーザー
+##### メールアドレス
+owner@example.com
+##### パスワード
+password
