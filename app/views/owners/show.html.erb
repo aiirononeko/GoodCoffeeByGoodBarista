@@ -30,6 +30,14 @@
       <% end %>
     </tr>
     <tr>
+      <th scope="row">勤務地</th>
+      <% if @owner.address.present? %>
+        <td><%= @owner.address %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+    <tr>
       <th scope="row">こんなバリスタ探してます</th>
       <% if @owner.wanted.present? %>
         <td><%= @owner.wanted %></td>
