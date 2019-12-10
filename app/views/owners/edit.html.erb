@@ -27,10 +27,18 @@
     <%= f.text_area :introduce, rows: 5, class: 'form-control' %>
   </div>
   <div class='form-group'>
+    <%= f.label :address, '勤務地' %><br>
+    <%= f.select :address, ['関東', '東海', '関西', '九州', '北海道'], class: 'form-control' %>
+  </div>
+  <div class='form-group'>
     <%= f.label :wanted, 'こんな人と働きたいです' %>
     <%= f.text_area :wanted, rows: 5, class: 'form-control' %>
   </div>
-  <%= f.submit 'プロフィールを更新', class: 'btn btn-success' %>
+  <div class='form-group'>
+    <%= f.label :status, '雇用形態' %><br>
+    <%= f.select :status, ['正社員', 'アルバイト'], class: 'form-control' %>
+  </div>
+  <%= f.submit 'プロフィールを更新', class: 'btn btn-success mt-3' %>
 <% end %>
 
 <div class='float-right mb-5'><%= link_to '退会する', owner_path(@owner), method: :delete, data: { confirm: '退会しますか？' } %></div>

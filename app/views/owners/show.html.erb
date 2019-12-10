@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <th scope="row">こんな事やっています</th>
-      <% if @owner.about %>
+      <% if @owner.about.present? %>
         <td><%= @owner.about %></td>
       <% else %>
         <td>未設定です</td>
@@ -23,16 +23,32 @@
     </tr>
     <tr>
       <th scope="row">店舗紹介</th>
-      <% if @owner.introduce %>
+      <% if @owner.introduce.present? %>
         <td><%= @owner.introduce %></td>
       <% else %>
         <td>未設定です</td>
       <% end %>
     </tr>
     <tr>
+      <th scope="row">勤務地</th>
+      <% if @owner.address.present? %>
+        <td><%= @owner.address %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+    <tr>
       <th scope="row">こんなバリスタ探してます</th>
-      <% if @owner.wanted %>
+      <% if @owner.wanted.present? %>
         <td><%= @owner.wanted %></td>
+      <% else %>
+        <td>未設定です</td>
+      <% end %>
+    </tr>
+    <tr>
+      <th scope='row'>雇用形態</th>
+      <% if @owner.status.present? %>
+        <td><%= @owner.status %></td>
       <% else %>
         <td>未設定です</td>
       <% end %>
